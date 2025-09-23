@@ -23,12 +23,12 @@ export const Categories: React.FC<Props> = ({ className }) => {
   return (
     <div className={cn('inline-flex gap-1 bg-gray-50 p-1 rounded-2xl', className)}>
       {
-        cats.map((cat, index) => (
+        cats.map(({ name, id }, index) => (
           <a className={cn(
             'flex items-center font-bold h-11 rounded-2xl px-5',
-            cat.id === categoryActiveId && 'bg-white shadow-md shadow-gray-200 text-primary',
-          )} key={index}>
-            <button>{cat.name}</button>
+            id === categoryActiveId && 'bg-white shadow-md shadow-gray-200 text-primary',
+          )} href={`/#${name}`} key={index}>
+            <button>{name}</button>
           </a>
         ))
       }
